@@ -23,6 +23,7 @@ viewport then setting that section as the active section and highlighting its na
 
 This is a one man project that I did myself 
 I did the research and I did the code
+All methods I used are learned from mdn https://developer.mozilla.org/en-US/
 
 ## Footer
 
