@@ -67,29 +67,31 @@ function addNavSections() {
 // now to make the viewed section highlighted in the nav bar
 
 function highlightViewed(){
-// added an even listener to the whole window when scrolled
+    // added an even listener to the whole window when scrolled
 
     window.addEventListener('scroll', ()=>{
-// added an empty variable to assign the viewed section to it 
-/**  
- * created a for loop to get the position of each section 
- * then assigned it to a variable
- * and checked which variable is closer to the viewport and assigned its id to the onView variable
- * that's when the id that was saved before comes into play
-*/
+        // added an empty variable to assign the viewed section to it 
+        /**  
+         * created a for loop to get the position of each section 
+         * then assigned it to a variable
+         * and checked which variable is closer to the viewport and assigned its id to the onView variable
+         * that's when the id that was saved before comes into play
+        */
         let onView = '';
         for(let section of allSections){
             let position = section.getBoundingClientRect();
+            section.classList.remove("your-active-class");
             if (position.top <= window.innerHeight/2 && position.bottom >= window.innerHeight/2){
+                section.classList.add("your-active-class");
                 onView = section.id;
             }
         }
-/**
- * created a class in css called active that holds the properties of the active nav button
- * after the loop ends it's needed to remove the active class from any li that had it before 
- * then the other loop seaches for the li that has the class named after the onView id
- * and adds the class active to its classlist and it becomes highlighted
-*/
+        /**
+         * created a class in css called active that holds the properties of the active nav button
+         * after the loop ends it's needed to remove the active class from any li that had it before 
+         * then the other loop seaches for the li that has the class named after the onView id
+         * and adds the class active to its classlist and it becomes highlighted
+        */
         for(let li of allLi){
             li.classList.remove('active');
             if (li.classList.contains(onView)){
